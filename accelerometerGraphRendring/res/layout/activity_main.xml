@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="5"
-    tools:context="com.example.accelerometergraphrendring.MainActivity" >
+    tools:context="com.phvalt.accelerometergraphrendring.MainActivity" >
 
     <LinearLayout
         android:id="@+id/Labels"
@@ -70,19 +70,8 @@
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.00" >
+        android:layout_height="match_parent" 
+        android:layout_weight="4.5">
     </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/spectrumLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.00"
-        android:orientation="vertical" >
-        
-        
-        
-    </LinearLayout>
 
 </LinearLayout>
