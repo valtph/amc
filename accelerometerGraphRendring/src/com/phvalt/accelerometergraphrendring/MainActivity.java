@@ -20,8 +20,6 @@ import org.achartengine.renderer.XYSeriesRenderer;
 
 import org.jtransforms.fft.DoubleFFT_1D;
 
-import com.example.accelerometergraphrendring.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
