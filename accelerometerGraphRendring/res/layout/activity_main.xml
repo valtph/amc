@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context="com.example.accelerometergraphrendring.MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/Labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="horizontal"
+        android:weightSum="5" >
+
+        <TextView
+            android:id="@+id/x_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.25"
+            android:text="@string/x"
+            android:textColor="@color/accele_x" />
+
+        <TextView
+            android:id="@+id/y_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/z_label"
+            android:layout_weight="1.25"
+            android:text="@string/y"
+            android:textColor="@color/accele_y" />
+
+        <TextView
+            android:id="@+id/z_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1.25"
+            android:text="@string/z"
+            android:textColor="@color/accele_z" />
+
+        <Button
+            android:id="@+id/saveButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+        <!--
+        <ProgressBar
+            android:id="@+id/barTimer"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="5"
+            android:progressDrawable="@drawable/circular_progress" />
+        -->
+
+        <TextView
+            android:id="@+id/timeInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.00" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/spectrumLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.00"
+        android:orientation="vertical" >
+        
+        
+        
+    </LinearLayout>
+
+</LinearLayout>
