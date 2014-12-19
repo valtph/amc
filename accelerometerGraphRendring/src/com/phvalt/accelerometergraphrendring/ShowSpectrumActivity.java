@@ -11,8 +11,11 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import com.example.accelerometergraphrendring.R;
+
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -70,4 +73,11 @@ public class ShowSpectrumActivity extends Activity{
         // Adding the Line Chart to the LinearLayout
         layout.addView(mChart);   
 	}
+	
+	@Override
+	public void onBackPressed(){
+		 Intent i = new Intent(ShowSpectrumActivity.this, MainActivity.class);
+		 startActivity(i);
+	}
+	
 }

@@ -20,6 +20,8 @@ import org.achartengine.renderer.XYSeriesRenderer;
 
 import org.jtransforms.fft.DoubleFFT_1D;
 
+import com.example.accelerometergraphrendring.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -73,7 +75,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView yCoor; // declare Y axis
 	private TextView zCoor; // declare Z axis
 	private Button saveButton;
-	//private ProgressBar cPB;
+	
+	private ProgressBar cPB;
 	private TextView timeInfo;
 	/**Graph variables**/
 	private boolean[] mGraphs = { true, true, true, };
@@ -165,7 +168,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		zCoor = (TextView) findViewById(R.id.z_label);
 		saveButton = (Button) findViewById(R.id.saveButton);
 		saveButton.setOnClickListener(this);
-		//cPB = (ProgressBar) findViewById(R.id.barTimer);//unused cause slow down the UI
+		cPB = (ProgressBar) findViewById(R.id.barTimer);//unused cause slow down the UI
 		timeInfo = (TextView) findViewById(R.id.timeInfo);
 		timeInfo.setText("OFF");
 
@@ -202,6 +205,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		startGraph();
 		super.onResume();
 	}
+	
 	@Override
 	protected void onPause() {
 		Log.i(TAG, "MainActivity.onPause()");
@@ -466,39 +470,45 @@ public class MainActivity extends Activity implements OnClickListener {
 			    b.putDoubleArray("amplitudes", magX);
 			    i.putExtras(b);
 			    startActivity(i);
-			    this.onPause();
+	
 			} else {
 				/** create an array to store data**/
 				sensorData = new ArrayList<AccelData>();
 				saving = true;
 				index=0;
-				//startTimer(5);
+				startTimer(5);
 				beginTimeStamp = SystemClock.elapsedRealtime();
-				saveButton.setText("press to stop");
-				//beginTimeStamp = System.nanoTime();
+				saveButton.setVisibility(8);
 			}
 			break;
+			
+			
 		default:
 			break;
 		}
 	}
-	/**	private void startTimer(final int seconds) {
+	
+	private void startTimer(final int seconds) {
 		CountDownTimer countDownTimer = new CountDownTimer(seconds * 1000, 1) {
+			
+			
 			@Override
 			public void onTick(long millisUntilFinished) {
+				
 				long remaining = millisUntilFinished / 1000;
 				timeInfo.setText(Integer.toString((int) remaining));
 				cPB.setProgress((int) (seconds - remaining));
-
+				
 			}
 			@Override
 			public void onFinish() {
 				cPB.setProgress(0);
 				timeInfo.setText("");
+				onClick(saveButton);
 			}
 		}.start();
 	}
-**/
+
 	private void saveTo(String fileName) throws IOException {
 		BufferedWriter wr = null;
 
